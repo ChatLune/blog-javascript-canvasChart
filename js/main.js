@@ -10,20 +10,30 @@ function chartbuild() {
 		var context = canvas.getContext('2d');
 
 		//チャートの基本変数定義
-		var center_x = 500;	         //中心x座標
-		var center_y = 500;          //中心y座標
+		var center_x = 250;	         //中心x座標
+		var center_y = 200;          //中心y座標
 		var vertex = 5;		         //頂点の数
-		var size = 300;	             //大きさ（外周円の半径）
+		var size = 150;	             //大きさ（外周円の半径）
 		var tilt　= 180;             //傾き
 		var scale = 5;               //目盛の数
 		var line_color = "#a9a9a9";  //プロット表のライン色
-		var line_width = 3;          //プロット表のラインの太さ
-		var line_width_out = 8;      //プロット表のラインの太さ（一番外側）
-		var line_width_center = 2;   //プロット表の中心線の太さ
+		var line_width = 2;          //プロット表のラインの太さ
+		var line_width_out = 4;      //プロット表のラインの太さ（一番外側）
+		var line_width_center = 1;   //プロット表の中心線の太さ
+
+		vertex = parseInt(document.getElementById("vertex").value);
+		size = parseInt(document.getElementById("size").value);
+		tilt = parseInt(document.getElementById("tilt").value);
+		scale = parseInt(document.getElementById("scale").value);
+		line_color = document.getElementById("line_color").value;
+		line_width = parseInt(document.getElementById("line_width").value);
+		line_width_out = parseInt(document.getElementById("line_width_out").value);
+		line_width_center = parseInt(document.getElementById("line_width_center").value);
 		
 		reset();
 
 		function reset() {
+			context.clearRect(0,0,canvas.width,canvas.height);
 	        makechartframe();
 	        makecenterline();
 	    }	

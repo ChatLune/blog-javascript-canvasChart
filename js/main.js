@@ -1,6 +1,7 @@
-$(window).load(function() {
+window.onload = function() {
+	setOnChange();
 	chartbuild();
-});
+};
 
 function chartbuild() {
 	
@@ -106,5 +107,14 @@ function chartbuild() {
 	        }
 	    }
 	    
+	}
+}
+
+function setOnChange() {
+	var inputElements = document.getElementsByTagName('input'),
+		i, len = inputElements.length;
+
+	for (i=0; i<len; ++i) {
+		inputElements[i].onkeyup = inputElements[i].onchange = chartbuild;
 	}
 }
